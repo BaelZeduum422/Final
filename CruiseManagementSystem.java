@@ -98,59 +98,6 @@ public class CruiseSystem {
         ships.add(ship);
     }
 
-        System.out.println("Enter the new name (leave blank to keep current):");
-        String newName = scanner.nextLine();
-        if (!newName.isBlank()) {
-            ship.setName(newName);
-        }
-
-        System.out.println("Enter the number of Balcony cabins (leave blank to keep current):");
-        String newBalconyCabinCountString = scanner.nextLine();
-        if (!newBalconyCabinCountString.isBlank()) {
-            try {
-                int newBalconyCabinCount = Integer.parseInt(newBalconyCabinCountString);
-                ship.setBalconyCabinCount(newBalconyCabinCount);
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Balcony cabin count must be an integer.");
-            }
-        }
-        
-        System.out.println("Enter the number of Ocean View cabins (leave blank to keep current):");
-        String newOceanViewCabinCountString = scanner.nextLine();
-        if (!newOceanViewCabinCountString.isBlank()) {
-            try {
-                int newOceanViewCabinCount = Integer.parseInt(newOceanViewCabinCountString);
-                ship.setOceanViewCabinCount(newOceanViewCabinCount);
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Ocean View cabin count must be an integer.");
-            }
-        }
-
-        System.out.println("Enter the number of Suite cabins (leave blank to keep current):");
-        String newSuiteCabinCountString = scanner.nextLine();
-        if (!newSuiteCabinCountString.isBlank()) {
-            try {
-                int newSuiteCabinCount = Integer.parseInt(newSuiteCabinCountString);
-                ship.setSuiteCabinCount(newSuiteCabinCount);
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Suite cabin count must be an integer.");
-            }
-        }
-
-        System.out.println("Enter the number of Interior cabins (leave blank to keep current):");
-        String newInteriorCabinCountString = scanner.nextLine();
-        if (!newInteriorCabinCountString.isBlank()) {
-            try {
-                int newInteriorCabinCount = Integer.parseInt(newInteriorCabinCountString);
-                ship.setInteriorCabinCount(newInteriorCabinCount);
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Interior cabin count must be an integer.");
-            }
-        }
-
-        System.out.println("Ship updated.");
-    }
-
     private static void editCruise() {
         System.out.println("Enter the cruise's name:");
         String cruiseName = scanner.nextLine();
