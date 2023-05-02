@@ -1,8 +1,11 @@
+package com.Final;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CruiseSystem {
+
+
+public class CruiseManagementSystem {
     
     private static Scanner scanner = new Scanner(System.in);
     private static List<Ship> ships = new ArrayList<>();
@@ -95,8 +98,16 @@ public class CruiseSystem {
             return;
         }
         System.out.println("Enter the name of the ship for the cruise:");
-        ships.add(ship);
-    }
+        String shipName = scanner.nextLine();
+        Ship ship = getShip(shipName);
+        if (ship == null) {
+            System.out.println("Ship does not exist.");
+            return;
+        }
+        cruises.add(new Cruise(name, ship));
+        System.out.println("Cruise added successfully.");
+}
+
 
     private static void editCruise() {
         System.out.println("Enter the cruise's name:");
@@ -135,13 +146,26 @@ public class CruiseSystem {
 
         System.out.println("Cruise edited successfully.");
     }
-
     private static void addPassenger() {
         System.out.println("Enter the passenger's name:");
         String name = scanner.nextLine();
 
         System.out.println("Enter the cabin type (Balcony, Ocean View, Suite, Interior):");
         String type = scanner.nextLine();
+
+        CabinType cabinType = null;
+        if (type.equalsIgnoreCase("Balcony")) {
+            cabinType = CabinType.BALCONY;
+        } else if (type.equalsIgnoreCase("Ocean View")) {
+            cabinType = CabinType.OCEAN_VIEW;
+        } else if (type.equalsIgnoreCase("Suite")) {
+            cabinType = CabinType.SUITE;
+        } else if (type.equalsIgnoreCase("Interior")) {
+            cabinType = CabinType.INTERIOR;
+        } else {
+            System.out.println("Invalid cabin type.");
+            return;
+        }
 
         System.out.println("Enter the cruise's name:");
         String cruiseName = scanner.nextLine();
@@ -158,11 +182,13 @@ public class CruiseSystem {
             return;
         }
 
-        Passenger passenger = new Passenger(name, type, cruise);
+        Passenger passenger = new Passenger(name, cabinType, cruise);
         passengers.add(passenger);
 
         System.out.println("Passenger " + name + " added to " + cruise.getName() + ".");
     }
+
+
 
     private static void editPassenger() {
         System.out.println("Enter the passenger's name:");
