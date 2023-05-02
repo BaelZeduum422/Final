@@ -104,9 +104,12 @@ public class CruiseManagementSystem {
             System.out.println("Ship does not exist.");
             return;
         }
-        cruises.add(new Cruise(name, ship));
+        System.out.println("Enter the maximum number of passengers for the cruise:");
+        int maxPassengers = scanner.nextInt();
+        scanner.nextLine(); // consume the remaining newline character
+        cruises.add(new Cruise(name, ship, maxPassengers));
         System.out.println("Cruise added successfully.");
-}
+    }
 
 
     private static void editCruise() {
